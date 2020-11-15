@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path')
 
-app.use()
+// app.use()
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
@@ -17,7 +17,7 @@ app.get('/', (req, res, next) =>
 );
 
 // authentication router
-app.use('/api', require('./routes'));
+// app.use('/api', require('./routes'));
 
 // Handle 404s
 app.use((req, res, next) => {

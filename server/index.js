@@ -2,6 +2,7 @@ const server = require('./server');
 
 const port = process.env.PORT || 3000;
 
+/*
 if (port === 3000) {
     const fs = require('fs');
     const https = require('https');
@@ -19,3 +20,6 @@ if (port === 3000) {
 } else {
     server.listen(port, () => console.log(`listening on port${port}`));
 }
+*/
+
+server.listen(port, () => console.log(`listening on port${port}`));
