@@ -9,12 +9,10 @@ app.use(express.static(path.join(__dirname, '..', 'dist')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/privacy', (req, res, next) =>
-    res.sendFile(path.join(__dirname, '../privacy.html'))
-);
+    res.sendFile(path.join(__dirname, '../privacy.html')));
 
 app.get('/', (req, res, next) =>
-    res.sendFile(path.join(__dirname, '../index.html'))
-);
+    res.sendFile(path.join(__dirname, '../index.html')));
 
 // authentication router
 // app.use('/api', require('./routes'));
