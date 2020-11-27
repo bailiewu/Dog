@@ -56,12 +56,12 @@ describe('`Deck` class',()=>{
   testDeck = new utils.Deck()
 
   it('has a deck of 108 cards in an array',()=>{
-    expect(testDeck.cards).to.be.an('array').to.have.lengthOf(108)
+    expect(testDeck.deck).to.be.an('array').to.have.lengthOf(108)
   })
 
   it('has a deck with exactly four `JOKERS`',()=>{
     let result = 0;
-    testDeck.cards.forEach(card=> {
+    testDeck.deck.forEach(card=> {
       if (card === "JOKER") result++
     })
     expect(result).to.equal(4)
@@ -69,8 +69,8 @@ describe('`Deck` class',()=>{
 
   it('has a deck with exactly 8 of every standard card(Ace to King)',()=>{
     let tempCount = {"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"JACK":0,"QUEEN":0,"KING":0,"ACE":0}
-    // count cards
-    testDeck.cards.forEach(card=> {
+    // count deck
+    testDeck.deck.forEach(card=> {
       tempCount[card]++
     })
     // count everything expect joker
@@ -81,16 +81,15 @@ describe('`Deck` class',()=>{
 
   describe('`Deck.shuffle` function',()=>{
     it('is a function',()=>{
-      // console.log(assert)
       assert.isFunction(testDeck.shuffle)
     })
 
-    it('shuffles cards',()=>{
+    it('shuffles deck',()=>{
       let shuffleTestDeck = new utils.Deck()
 
       // track current card order
       let initialTempShuffleOrder = "";
-      shuffleTestDeck.cards.forEach(element => {
+      shuffleTestDeck.deck.forEach(element => {
         initialTempShuffleOrder+=element
       });
 
@@ -100,7 +99,7 @@ describe('`Deck` class',()=>{
       // test card order
 
       let finalTempShuffleOrder = "";
-      shuffleTestDeck.cards.forEach(element => {
+      shuffleTestDeck.deck.forEach(element => {
         finalTempShuffleOrder+=element
       });
       // expect the order to different
@@ -118,24 +117,30 @@ describe('`Deck` class',()=>{
       })
 
       it('throws an error if either parameter are less than 2',()=>{
-        // assert.throws(testDeck.deal)
         assert.throw( ()=> {testDeck.deal(0,1)})&&
         assert.throw( ()=> {testDeck.deal(1,0)})&&
         assert.throw( ()=> {testDeck.deal(-1,52)})&&
         assert.throw( ()=> {testDeck.deal(0,1)})
       })
 
-      it('throws an error cardcount is greater than 6',()=>{
-        // assert.throws(testDeck.deal)
+      it('throws an error if cardcount is greater than 6',()=>{
         assert.throw( ()=> {testDeck.deal(2,7)})&&
         assert.throw( ()=> {testDeck.deal(3,8)})&&
         assert.throw( ()=> {testDeck.deal(4,11)})&&
         assert.throw( ()=> {testDeck.deal(5,15)})
       })
 
-      it('returns an array of array cards',()=>{
-        // testDeck.deal(2,1)
-        // assert.
+      it('throws an error if players is greater than 18',()=>{
+        assert.throw( ()=> {testDeck.deal(20)})&&
+        assert.throw( ()=> {testDeck.deal(19)})&&
+        assert.throw( ()=> {testDeck.deal(200)})
+      })
+
+      it('returns an array of array deck',()=>{
+        console.log(testDeck.deck.length)
+        console.log(testDeck.deal(6,6))
+        console.log(testDeck.deck.length)
+
       })
     })
 

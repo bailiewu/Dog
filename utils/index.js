@@ -6,8 +6,9 @@ const roll = () => {
 
 class Deck {
     constructor(){
-        this.cards=[];
+        this.deck=[];
         this.shuffle();
+        this.currentHand=[];
     }
 
     //  returns the array of shuffled deck of cards
@@ -30,15 +31,29 @@ class Deck {
             [result[i], result[j]] = [result[j], result[i]];
         }
 
-        this.cards = result
-        return this.cards;
+        this.deck = result
+        return this.deck;
     }
 
     deal(players=2,cardCount=2){
-        // console.error("test")
         if( players < 2 || cardCount < 2 ) {throw new Error('Parameter minimums are 2')}
         if(cardCount > 6 ) {throw new Error('card count maximum is 6')}
+        if(players > 18 ) {throw new Error('players maximum is 18')}
+        let result = []
+        for(let i = 0; i < players; i++){
 
+            let temp = []
+            for (let j = 0 ; j < cardCount; j++){
+                temp.push(this.deck.pop())
+            }
+            result.push(temp)
+        }
+        this.currentHand=result
+
+        this.shuffle()
+
+        // console.log("result:",result)
+        return this.currentHand
     }
 
 }
