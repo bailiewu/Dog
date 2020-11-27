@@ -7,7 +7,7 @@ const assert = require('assert');
 const utils = require('../utils/')
 
 const roll = utils.roll
-xdescribe('`roll` utility method',()=>{
+describe('`roll` utility method',()=>{
   it('returns a number',()=>{
     expect(roll()).to.be.a('number')
   });
@@ -51,10 +51,6 @@ xdescribe('`roll` utility method',()=>{
 
 // Deck tests
 
-// const deck = new utils.Deck()
-// console.log(deck)
-// console.log(utils)
-// console.log("deck: ", deck)
 describe('`Deck` class',()=>{
   testDeck = new utils.Deck()
 
@@ -83,10 +79,31 @@ describe('`Deck` class',()=>{
   })
 
   describe('`Deck.shuffle` function',()=>{
-    it('is potato',()=>{
+    it('shuffles cards',()=>{
+      let shuffleTestDeck = new utils.Deck()
 
+      // track current card order
+      let initialTempShuffleOrder = "";
+      shuffleTestDeck.cards.forEach(element => {
+        initialTempShuffleOrder+=element
+      });
+
+      // shuffle
+      shuffleTestDeck.shuffle()
+
+      // test card order
+
+      let finalTempShuffleOrder = "";
+      shuffleTestDeck.cards.forEach(element => {
+        finalTempShuffleOrder+=element
+      });
+      // expect the order to different
+      expect(finalTempShuffleOrder).to.not.equal(initialTempShuffleOrder)
     })
+
   })
+  
+  
 
 })
  
