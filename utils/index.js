@@ -34,10 +34,12 @@ class Deck {
         return this.cards;
     }
 
-    //  returns 
-    // deal(players,cardCount){
+    deal(players=2,cardCount=2){
+        // console.error("test")
+        if( players < 2 || cardCount < 2 ) {throw new Error('Parameter minimums are 2')}
+        if(cardCount > 6 ) {throw new Error('card count maximum is 6')}
 
-    // }
+    }
 
 }
 

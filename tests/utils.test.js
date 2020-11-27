@@ -1,7 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const assert = require('assert');
+const assert = chai.assert;
+// const assert = require('assert');
 
 // dice roll
 const utils = require('../utils/')
@@ -79,6 +80,11 @@ describe('`Deck` class',()=>{
   })
 
   describe('`Deck.shuffle` function',()=>{
+    it('is a function',()=>{
+      // console.log(assert)
+      assert.isFunction(testDeck.shuffle)
+    })
+
     it('shuffles cards',()=>{
       let shuffleTestDeck = new utils.Deck()
 
@@ -101,9 +107,37 @@ describe('`Deck` class',()=>{
       expect(finalTempShuffleOrder).to.not.equal(initialTempShuffleOrder)
     })
 
+    it('returns an array of 108',()=>{
+      expect(testDeck.shuffle()).to.have.length(108)
+    })
   })
   
-  
+    describe('`Deck.deal` function',()=>{
+      it('is a function,',()=>{
+        assert.isFunction(testDeck.deal)
+      })
+
+      it('throws an error if either parameter are less than 2',()=>{
+        // assert.throws(testDeck.deal)
+        assert.throw( ()=> {testDeck.deal(0,1)})&&
+        assert.throw( ()=> {testDeck.deal(1,0)})&&
+        assert.throw( ()=> {testDeck.deal(-1,52)})&&
+        assert.throw( ()=> {testDeck.deal(0,1)})
+      })
+
+      it('throws an error cardcount is greater than 6',()=>{
+        // assert.throws(testDeck.deal)
+        assert.throw( ()=> {testDeck.deal(2,7)})&&
+        assert.throw( ()=> {testDeck.deal(3,8)})&&
+        assert.throw( ()=> {testDeck.deal(4,11)})&&
+        assert.throw( ()=> {testDeck.deal(5,15)})
+      })
+
+      it('returns an array of array cards',()=>{
+        // testDeck.deal(2,1)
+        // assert.
+      })
+    })
 
 })
  
