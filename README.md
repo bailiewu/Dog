@@ -1,3 +1,2 @@
-# Dog
-
-[![bailiewu](https://circleci.com/gh/bailiewu/dog?style=svg)](https://github.com/bailiewu/Dog)
+# Dog:
+![bailiewu](https://circleci.com/gh/bailiewu/Dog.svg?style=svg)
