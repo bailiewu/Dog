@@ -9,7 +9,8 @@
     "postinstall": "npm run webpack",
     "webpack": "webpack",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
-    "test": "mocha tests --watch"
+    "test": "mocha tests",
+    "test:dev": "mocha tests --watch"
   },
   "repository": {
     "type": "git",
