@@ -2,16 +2,10 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const assert = require('assert');
-// describe('Array', function() {
-//   describe('#indexOf()', function() {
-//     it('should return -1 when the value is not present', function() {
-//       assert.equal([1, 2, 3].indexOf(4), -1);
-//     });
-//   });
-// });
 
 // dice roll
 const utils = require('../utils/')
+
 const roll = utils.roll
 describe('`roll` utility method',()=>{
   it('returns a number',()=>{
@@ -54,4 +48,15 @@ describe('`roll` utility method',()=>{
   })
 });
 
+// Deck tests
+
+// const deck = new utils.Deck()
+// console.log(utils)
+// console.log("deck: ", deck)
+describe('`Deck` class',()=>{
+  it('has a deck of cards in an array',()=>{
+    // deck=new Deck()
+  })
+})
  
+
