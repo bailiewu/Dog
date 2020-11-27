@@ -7,7 +7,7 @@ const assert = require('assert');
 const utils = require('../utils/')
 
 const roll = utils.roll
-describe('`roll` utility method',()=>{
+xdescribe('`roll` utility method',()=>{
   it('returns a number',()=>{
     expect(roll()).to.be.a('number')
   });
@@ -48,15 +48,46 @@ describe('`roll` utility method',()=>{
   })
 });
 
+
 // Deck tests
 
 // const deck = new utils.Deck()
+// console.log(deck)
 // console.log(utils)
 // console.log("deck: ", deck)
 describe('`Deck` class',()=>{
-  it('has a deck of cards in an array',()=>{
-    // deck=new Deck()
+  testDeck = new utils.Deck()
+
+  it('has a deck of 108 cards in an array',()=>{
+    expect(testDeck.cards).to.be.an('array').to.have.lengthOf(108)
   })
+
+  it('has a deck with exactly four `JOKERS`',()=>{
+    let result = 0;
+    testDeck.cards.forEach(card=> {
+      if (card === "JOKER") result++
+    })
+    expect(result).to.equal(4)
+  })
+
+  it('has a deck with exactly 8 of every standard card(Ace to King)',()=>{
+    let tempCount = {"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"JACK":0,"QUEEN":0,"KING":0,"ACE":0}
+    // count cards
+    testDeck.cards.forEach(card=> {
+      tempCount[card]++
+    })
+    // count everything expect joker
+    delete tempCount.JOKER
+    // compare values
+    expect(Object.values(tempCount)).to.deep.equal([ 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8])
+  })
+
+  describe('`Deck.shuffle` function',()=>{
+    it('is potato',()=>{
+
+    })
+  })
+
 })
  
 
