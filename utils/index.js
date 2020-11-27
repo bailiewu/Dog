@@ -1,7 +1,8 @@
 const utils = {};
 
 utils.roll = () => {
-    // return Math.floor(Math.random() * 4)+2
+    // rolls between 2 - 6
+    // no rolling 1 for brandi dog
     return Math.floor(Math.random() * Math.floor(5))+2;
 }
 
